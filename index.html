@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Cierre - Área de Ingeniería</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --precalc: #3498db;
+            --calculus: #9b59b6;
+            --analog: #e67e22;
+            --digital: #f1c40f;
+            --probability: #2ecc71;
+            --statistics: #1abc9c;
+            --operations: #d35400;
+            --physics1: #c0392b;
+            --physics2: #16a085;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Portada */
+        .cover {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .cover h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .cover h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            border: none;
+        }
+
+        .cover-info {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin-top: 30px;
+        }
+
+        .cover-info p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Índice */
+        .index {
+            padding: 60px 40px;
+            background-color: white;
+        }
+
+        .index h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            border: none;
+            font-size: 2.2rem;
+        }
+
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .index-card {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .index-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .index-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .index-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .index-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .index-card a:hover {
+            background-color: var(--primary);
+        }
+
+        /* Navegación */
+        .nav-container {
+            background-color: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        nav li {
+            margin-right: 5px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Secciones de cursos */
+        .course-section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            border-bottom: 2px solid;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .course-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .objectives {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .exercises {
+            margin-top: 40px;
+        }
+
+        .exercise-card {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .solution {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .katex-formula {
+            overflow-x: auto;
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        /* Colores específicos para cada curso */
+        .precalc {
+            border-color: var(--precalc);
+        }
+
+        .precalc h2 {
+            color: var(--precalc);
+        }
+
+        .precalc .problem {
+            border-color: var(--precalc);
+        }
+
+        .precalc .index-card {
+            color: var(--precalc);
+        }
+
+        .calculus {
+            border-color: var(--calculus);
+        }
+
+        .calculus h2 {
+            color: var(--calculus);
+        }
+
+        .calculus .problem {
+            border-color: var(--calculus);
+        }
+
+        .calculus .index-card {
+            color: var(--calculus);
+        }
+
+        .analog {
+            border-color: var(--analog);
+        }
+
+        .analog h2 {
+            color: var(--analog);
+        }
+
+        .analog .problem {
+            border-color: var(--analog);
+        }
+
+        .analog .index-card {
+            color: var(--analog);
+        }
+
+        .digital {
+            border-color: var(--digital);
+        }
+
+        .digital h2 {
+            color: var(--digital);
+        }
+
+        .digital .problem {
+            border-color: var(--digital);
+        }
+
+        .digital .index-card {
+            color: var(--digital);
+        }
+
+        .probability {
+            border-color: var(--probability);
+        }
+
+        .probability h2 {
+            color: var(--probability);
+        }
+
+        .probability .problem {
+            border-color: var(--probability);
+        }
+
+        .probability .index-card {
+            color: var(--probability);
+        }
+
+        .statistics {
+            border-color: var(--statistics);
+        }
+
+        .statistics h2 {
+            color: var(--statistics);
+        }
+
+        .statistics .problem {
+            border-color: var(--statistics);
+        }
+
+        .statistics .index-card {
+            color: var(--statistics);
+        }
+
+        .operations {
+            border-color: var(--operations);
+        }
+
+        .operations h2 {
+            color: var(--operations);
+        }
+
+        .operations .problem {
+            border-color: var(--operations);
+        }
+
+        .operations .index-card {
+            color: var(--operations);
+        }
+
+        .physics1 {
+            border-color: var(--physics1);
+        }
+
+        .physics1 h2 {
+            color: var(--physics1);
+        }
+
+        .physics1 .problem {
+            border-color: var(--physics1);
+        }
+
+        .physics1 .index-card {
+            color: var(--physics1);
+        }
+
+        .physics2 {
+            border-color: var(--physics2);
+        }
+
+        .physics2 h2 {
+            color: var(--physics2);
+        }
+
+        .physics2 .problem {
+            border-color: var(--physics2);
+        }
+
+        .physics2 .index-card {
+            color: var(--physics2);
+        }
+
+        @media (max-width: 768px) {
+            .course-info {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+
+            .cover h1 {
+                font-size: 2.5rem;
+            }
+
+            .cover h2 {
+                font-size: 1.5rem;
+            }
+
+            .index-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Portada -->
+        <section class="cover">
+            <h1>Portafolio de Cierre de Cursos</h1>
+            <h2>Ingeniería en Sistemas de Información y Ciencias de la Computación</h2>
+
+            <div class="cover-info" style="text-align: left;">
+                <p><i class="fas fa-user-graduate"></i> Estudiante: Cruz Pablo Pérez</p>
+                <p><i class="fa-regular fa-id-card"></i> Carné: 1090-18-3308</p>
+                <p><i class="fas fa-university"></i> Universidad Mariano Gálvez, Sede Quiché</p>
+                <p><i class="fas fa-calendar-alt"></i> Periodo: Febrero 2018 - Agosto 2025</p>
+            </div>
+
+            <div class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- Índice -->
+        <section class="index">
+            <h2>Índice de Cursos</h2>
+
+            <div class="index-grid">
+                <div class="index-card precalc">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Precálculo</h3>
+                    <p>Fundamentos matemáticos para el cálculo</p>
+                    <a href="#precalc">Ver curso</a>
+                </div>
+
+                <div class="index-card calculus">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Cálculo</h3>
+                    <p>Límites, derivadas e integrales</p>
+                    <a href="#calculus">Ver curso</a>
+                </div>
+
+                <div class="index-card analog">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Electrónica Analógica</h3>
+                    <p>Circuitos y componentes electrónicos</p>
+                    <a href="#analog">Ver curso</a>
+                </div>
+
+                <div class="index-card digital">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Electrónica Digital</h3>
+                    <p>Sistemas lógicos y digitales</p>
+                    <a href="#digital">Ver curso</a>
+                </div>
+
+                <div class="index-card probability">
+                    <i class="fas fa-dice"></i>
+                    <h3>Probabilidad</h3>
+                    <p>Modelos y distribuciones probabilísticas</p>
+                    <a href="#probability">Ver curso</a>
+                </div>
+
+                <div class="index-card statistics">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Estadística</h3>
+                    <p>Análisis e interpretación de datos</p>
+                    <a href="#statistics">Ver curso</a>
+                </div>
+
+                <div class="index-card operations">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Investigación de Operaciones</h3>
+                    <p>Optimización y modelos decisionales</p>
+                    <a href="#operations">Ver curso</a>
+                </div>
+
+                <div class="index-card physics1">
+                    <i class="fas fa-atom"></i>
+                    <h3>Física I</h3>
+                    <p>Mecánica clásica y termodinámica</p>
+                    <a href="#physics1">Ver curso</a>
+                </div>
+
+                <div class="index-card physics2">
+                    <i class="fas fa-magnet"></i>
+                    <h3>Física II</h3>
+                    <p>Electromagnetismo y óptica</p>
+                    <a href="#physics2">Ver curso</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="#precalc">Precálculo</a></li>
+                    <li><a href="#calculus">Cálculo</a></li>
+                    <li><a href="#analog">Electrónica Analógica</a></li>
+                    <li><a href="#digital">Electrónica Digital</a></li>
+                    <li><a href="#probability">Probabilidad</a></li>
+                    <li><a href="#statistics">Estadística</a></li>
+                    <li><a href="#operations">Investigación de Operaciones</a></li>
+                    <li><a href="#physics1">Física I</a></li>
+                    <li><a href="#physics2">Física II</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- PRECÁLCULO -->
+        <section id="precalc" class="course-section precalc">
+            <div class="course-header">
+                <h2>Precálculo</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Comprender y aplicar conceptos de funciones y sus propiedades</li>
+                    <li>Resolver ecuaciones e inecuaciones algebraicas</li>
+                    <li>Analizar funciones trigonométricas y sus aplicaciones</li>
+                    <li>Utilizar coordenadas cartesianas para representar relaciones matemáticas</li>
+                    <li>Preparar las bases para el estudio del cálculo diferencial e integral</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Resolución de Ecuación Cuadrática</h4>
+                    <div class="problem">
+                        <p>Resuelve la ecuación cuadrática: \(2x^2 - 4x - 6 = 0\)</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Identificamos los coeficientes: a = 2, b = -4, c = -6
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Aplicamos la fórmula cuadrática:
+                            \(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Sustituimos los valores:
+                            \(x = \frac{-(-4) \pm \sqrt{(-4)^2 - 4(2)(-6)}}{2(2)} = \frac{4 \pm \sqrt{16 + 48}}{4} =
+                            \frac{4 \pm \sqrt{64}}{4} = \frac{4 \pm 8}{4}\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Calculamos las dos soluciones:
+                            \(x_1 = \frac{4 + 8}{4} = \frac{12}{4} = 3\)
+                            \(x_2 = \frac{4 - 8}{4} = \frac{-4}{4} = -1\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 2: Función Lineal y Gráfica</h4>
+                    <div class="problem">
+                        <p>Dada la función \(f(x) = 2x - 3\), encuentra la pendiente, el intercepto con el eje y, y
+                            grafica la función.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            La función está en forma pendiente-intercepto: \(y = mx + b\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Pendiente (m) = 2
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Intercepto con el eje y (b) = -3 → Punto (0, -3)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Para graficar, comenzamos en el punto (0, -3) y usamos la pendiente: por cada aumento de 1
+                            en x, y aumenta 2.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 3: Simplificación de Expresiones Algebraicas</h4>
+                    <div class="problem">
+                        <p>Simplifica la expresión: \(\frac{3x^2 - 12}{x^2 + 4x + 4} \cdot \frac{x+2}{x-2}\)</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Factorizamos: \(3x^2 - 12 = 3(x-2)(x+2)\), \(x^2 + 4x + 4 = (x+2)^2\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Reescribimos: \(\frac{3(x-2)(x+2)}{(x+2)^2} \cdot \frac{x+2}{x-2}\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Simplificamos: \(\frac{3 \cancel{(x-2)} \cancel{(x+2)}}{\cancel{(x+2)} \cancel{(x+2)}} \cdot
+                            \frac{\cancel{x+2}}{\cancel{x-2}} = 3\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 4 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 4: Resolución de Sistema de Ecuaciones</h4>
+                    <div class="problem">
+                        <p>Resuelve el sistema de ecuaciones: \(2x + y = 7\) y \(3x - 2y = 0\)</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Despejamos y en la primera ecuación: \(y = 7 - 2x\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Sustituimos en la segunda: \(3x - 2(7 - 2x) = 0\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Resolvemos: \(3x - 14 + 4x = 0 \Rightarrow 7x = 14 \Rightarrow x = 2\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Sustituimos x = 2: \(y = 7 - 2(2) = 3\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 5 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 5: Problema de Aplicación - Optimización</h4>
+                    <div class="problem">
+                        <p>Se quiere construir una caja rectangular sin tapa con una base cuadrada. Si el área total es
+                            de 300 cm², ¿qué dimensiones maximizan el volumen?</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Sea x el lado de la base y h la altura: \(x^2 + 4xh = 300\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Despejamos h: \(h = \frac{300 - x^2}{4x}\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Volumen: \(V = x^2 \cdot h = \frac{300x - x^3}{4}\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Derivamos: \(V' = \frac{300 - 3x^2}{4} = 0 \Rightarrow x = 10\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Calculamos h: \(h = \frac{300 - 100}{40} = 5\)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CÁLCULO -->
+        <section id="calculus" class="course-section calculus">
+            <div class="course-header">
+                <h2>Cálculo</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Comprender y aplicar los conceptos de límites y continuidad</li>
+                    <li>Calcular derivadas de funciones y aplicarlas a problemas de optimización</li>
+                    <li>Resolver problemas de razones de cambio relacionadas</li>
+                    <li>Calcular integrales definidas e indefinidas</li>
+                    <li>Aplicar el teorema fundamental del cálculo</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Cálculo de Límites</h4>
+                    <div class="problem">
+                        <p>Calcula el límite: \(\lim_{x \to 2} \frac{x^2 - 4}{x - 2}\)</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Factorizamos el numerador: \(x^2 - 4 = (x-2)(x+2)\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Simplificamos: \(\frac{(x-2)(x+2)}{x-2} = x+2\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Evaluamos el límite: \(\lim_{x \to 2} (x+2) = 4\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 2: Derivación Implícita</h4>
+                    <div class="problem">
+                        <p>Encuentra \(\frac{dy}{dx}\) para la ecuación \(x^2 + y^2 = 25\)</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Derivamos ambos lados: \(\frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) = \frac{d}{dx}(25)\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Aplicamos reglas de derivación: \(2x + 2y\frac{dy}{dx} = 0\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Despejamos \(\frac{dy}{dx}\): \(2y\frac{dy}{dx} = -2x\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Obtenemos: \(\frac{dy}{dx} = -\frac{x}{y}\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 3: Optimización</h4>
+                    <div class="problem">
+                        <p>Encuentra dos números positivos cuya suma sea 50 y cuyo producto sea máximo.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Sean x y y los números: \(x + y = 50\), queremos maximizar \(P = x \cdot y\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Expresamos y en términos de x: \(y = 50 - x\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Producto: \(P = x(50 - x) = 50x - x^2\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Derivamos: \(P' = 50 - 2x\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Igualamos a cero: \(50 - 2x = 0 \Rightarrow x = 25\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            Entonces \(y = 25\), y el producto máximo es \(25 \times 25 = 625\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 4 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 4: Integral Definida</h4>
+                    <div class="problem">
+                        <p>Calcula \(\int_0^1 (3x^2 + 2x + 1) dx\)</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Encontramos la antiderivada: \(\int (3x^2 + 2x + 1) dx = x^3 + x^2 + x + C\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Evaluamos en los límites: \([1^3 + 1^2 + 1] - [0^3 + 0^2 + 0] = 3 - 0 = 3\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 5 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 5: Regla de L'Hôpital</h4>
+                    <div class="problem">
+                        <p>Calcula \(\lim_{x \to 0} \frac{\sin x}{x}\)</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Verificamos que es una indeterminación 0/0: \(\sin 0 = 0\), \(0 = 0\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Aplicamos L'Hôpital: derivamos numerador y denominador
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            \(\frac{d}{dx}(\sin x) = \cos x\), \(\frac{d}{dx}(x) = 1\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            El límite es \(\lim_{x \to 0} \frac{\cos x}{1} = \cos 0 = 1\)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ELECTRÓNICA ANALÓGICA -->
+        <section id="analog" class="course-section analog">
+            <div class="course-header">
+                <h2>Electrónica Analógica</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Analizar y diseñar circuitos con diodos semiconductores</li>
+                    <li>Comprender el funcionamiento de transistores bipolares y MOSFET</li>
+                    <li>Diseñar y analizar amplificadores operacionales</li>
+                    <li>Calcular parámetros de circuitos electrónicos básicos</li>
+                    <li>Implementar circuitos rectificadores y reguladores de voltaje</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Circuito Rectificador de Media Onda</h4>
+                    <div class="problem">
+                        <p>Diseña un circuito rectificador de media onda con diodo para una señal de entrada de 12V RMS.
+                            Calcula el voltaje de salida promedio.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Voltaje pico de entrada: \(V_p = V_{RMS} \times \sqrt{2} = 12 \times 1.414 = 17V\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Considerando la caída en el diodo (0.7V para silicio): \(V_{out(pico)} = 17 - 0.7 = 16.3V\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Voltaje promedio de salida: \(V_{avg} = \frac{V_p}{\pi} = \frac{16.3}{3.1416} = 5.19V\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 2: Polarización de Transistor BJT</h4>
+                    <div class="problem">
+                        <p>Calcula los puntos de operación (ICQ, VCEQ) para un transistor BJT con polarización por
+                            divisor de voltaje. Datos: VCC=12V, R1=22kΩ, R2=10kΩ, RC=2.2kΩ, RE=1kΩ, β=100.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Voltaje en la base: \(V_B = V_{CC} \times \frac{R2}{R1+R2} = 12 \times \frac{10}{32} =
+                            3.75V\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Voltaje en el emisor: \(V_E = V_B - V_{BE} = 3.75 - 0.7 = 3.05V\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Corriente en el emisor: \(I_E = \frac{V_E}{R_E} = \frac{3.05}{1000} = 3.05mA\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            \(I_C ≈ I_E = 3.05mA\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            \(V_{CE} = V_{CC} - I_C(R_C + R_E) = 12 - 0.00305(2200 + 1000) = 12 - 9.76 = 2.24V\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 3: Amplificador Operacional No Inversor</h4>
+                    <div class="problem">
+                        <p>Diseña un amplificador operacional no inversor con ganancia de 10. Si el voltaje de entrada
+                            es 0.5V, ¿cuál es el voltaje de salida?</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Fórmula de ganancia: \(A = 1 + \frac{R_f}{R_1} = 10\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Elegimos R1 = 10kΩ, entonces \(\frac{R_f}{10k} = 9 \Rightarrow R_f = 90kΩ\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            \(V_{out} = A \times V_{in} = 10 \times 0.5 = 5V\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 4 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 4: Filtro Pasa-Bajos RC</h4>
+                    <div class="problem">
+                        <p>Diseña un filtro pasa-bajos con frecuencia de corte de 1kHz. Calcula la atenuación a 5kHz.
+                        </p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Frecuencia de corte: \(f_c = \frac{1}{2\pi RC} = 1000Hz\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Elegimos C = 10nF, entonces \(R = \frac{1}{2\pi \times 1000 \times 10^{-8}} = 15.9kΩ\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Atenuación a 5kHz: \(\frac{V_{out}}{V_{in}} = \frac{1}{\sqrt{1 + (f/f_c)^2}} =
+                            \frac{1}{\sqrt{1 + 25}} = 0.196\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Atenuación en dB: \(20\log(0.196) = -14.15dB\)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 5 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 5: Regulador de Voltaje con Zener</h4>
+                    <div class="problem">
+                        <p>Diseña un regulador de voltaje con diodo Zener de 5.6V para una carga de 1kΩ y voltaje de
+                            entrada entre 8-12V.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Corriente máxima de carga: \(I_L = \frac{5.6}{1000} = 5.6mA\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Asumimos corriente mínima en Zener: \(I_{Zmin} = 5mA\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Corriente total: \(I_T = I_Z + I_L = 5 + 5.6 = 10.6mA\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Resistencia en serie: \(R_S = \frac{V_{inmin} - V_Z}{I_T} = \frac{8 - 5.6}{0.0106} = 226Ω\)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Usamos resistencia estándar de 220Ω
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ELECTRÓNICA DIGITAL -->
+        <section id="digital" class="course-section digital">
+            <div class="course-header">
+                <h2>Electrónica Digital</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Diseñar circuitos combinacionales usando álgebra booleana</li>
+                    <li>Implementar circuitos secuenciales con flip-flops</li>
+                    <li>Analizar y diseñar máquinas de estado finito</li>
+                    <li>Utilizar sistemas numéricos y códigos binarios</li>
+                    <li>Programar dispositivos lógicos programables (PLD)</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Simplificación de Función Booleana</h4>
+                    <div class="problem">
+                        <p>Simplifica la función booleana F = A'B'C' + A'B'C + AB'C' + AB'C usando álgebra de Boole.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Agrupamos términos: F = A'B'(C' + C) + AB'(C' + C)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Aplicamos identidad: C' + C = 1
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            F = A'B'(1) + AB'(1) = A'B' + AB'
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Factorizamos: F = B'(A' + A)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Aplicamos identidad: A' + A = 1, entonces F = B'
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 2: Diseño de Circuito Combinacional</h4>
+                    <div class="problem">
+                        <p>Diseña un circuito que implemente un semáforo simple con dos estados: verde (10 segundos) y
+                            rojo (15 segundos).</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Definimos estados: Estado 0 (Verde), Estado 1 (Rojo)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Usamos un flip-flop para almacenar el estado (0 o 1)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Implementamos un contador para medir el tiempo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Cuando el contador alcanza 10 segundos en estado 0, cambia a estado 1
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Cuando el contador alcanza 15 segundos en estado 1, cambia a estado 0
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 3: Conversión de Sistemas Numéricos</h4>
+                    <div class="problem">
+                        <p>Convierte el número decimal 173 a binario, hexadecimal y BCD.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Binario: 173 ÷ 2 = 86 residuo 1, 86 ÷ 2 = 43 residuo 0, ..., resultado: 10101101
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Hexadecimal: 173 ÷ 16 = 10 residuo 13 (D), 10 ÷ 16 = 0 residuo 10 (A), resultado: AD
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            BCD: 1 = 0001, 7 = 0111, 3 = 0011, resultado: 0001 0111 0011
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 4 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 4: Análisis de Circuito con Flip-Flops</h4>
+                    <div class="problem">
+                        <p>Analiza el siguiente circuito con flip-flops JK y determina su comportamiento.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Identificamos las entradas: J0 = K0 = 1, J1 = K1 = Q0
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Para FF0: J0=K0=1, por lo que togglea con cada pulso de reloj
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Para FF1: J1=K1=Q0, togglea cuando Q0=1
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Es un contador asíncrono de 2 bits que cuenta de 0 a 3
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 5 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 5: Implementación con Multiplexores</h4>
+                    <div class="problem">
+                        <p>Implementa la función F(A,B,C) = Σ(0,2,5,7) usando un multiplexor 8:1.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Conectamos A, B, C a las líneas de selección S2, S1, S0
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Para cada combinación, conectamos la entrada correspondiente:
+                            D0=1, D1=0, D2=1, D3=0, D4=0, D5=1, D6=0, D7=1
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            La salida Y del multiplexor implementa la función F
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBABILIDAD -->
+        <section id="probability" class="course-section probability">
+            <div class="course-header">
+                <h2>Probabilidad</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Comprender los conceptos básicos de probabilidad y sus aplicaciones</li>
+                    <li>Calcular probabilidades de eventos simples y compuestos</li>
+                    <li>Aplicar distribuciones de probabilidad discretas y continuas</li>
+                    <li>Utilizar teoremas fundamentales como Bayes y Ley de los Grandes Números</li>
+                    <li>Resolver problemas de probabilidad en contextos reales</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Probabilidad Condicional</h4>
+                    <div class="problem">
+                        <p>En una clase, el 60% de los estudiantes son mujeres y el 40% son hombres. El 30% de las
+                            mujeres y el 20% de los hombres tienen beca. Si se selecciona un estudiante al azar y tiene
+                            beca, ¿cuál es la probabilidad de que sea mujer?</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Definimos eventos: M = ser mujer, H = ser hombre, B = tener beca
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            P(M) = 0.6, P(H) = 0.4, P(B|M) = 0.3, P(B|H) = 0.2
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Aplicamos teorema de Bayes: P(M|B) = [P(B|M)P(M)] / [P(B|M)P(M) + P(B|H)P(H)]
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Calculamos: P(M|B) = [0.3*0.6] / [0.3*0.6 + 0.2*0.4] = 0.18 / (0.18+0.08) = 0.18/0.26 ≈
+                            0.6923
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            La probabilidad es aproximadamente 69.23%
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 2: Distribución Binomial</h4>
+                    <div class="problem">
+                        <p>La probabilidad de que un componente falle es 0.1. Si se prueban 10 componentes, ¿cuál es la
+                            probabilidad de que fallen exactamente 3?</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Es una distribución binomial con n=10, p=0.1, x=3
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Fórmula: P(X=3) = C(10,3) * (0.1)^3 * (0.9)^7
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            C(10,3) = 120
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            P(X=3) = 120 * 0.001 * 0.4783 ≈ 0.0574
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            La probabilidad es aproximadamente 5.74%
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 3: Distribución Normal</h4>
+                    <div class="problem">
+                        <p>Las calificaciones de un examen siguen una distribución normal con media 75 y desviación
+                            estándar 10. ¿Qué porcentaje de estudiantes obtuvo entre 70 y 85 puntos?</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Convertimos a puntuaciones z: z1 = (70-75)/10 = -0.5, z2 = (85-75)/10 = 1.0
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Buscamos en tabla: P(Z < -0.5)=0.3085, P(Z < 1.0)=0.8413 </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    P(-0.5 < Z < 1.0)=0.8413 - 0.3085=0.5328 </div>
+                                        <div class="step">
+                                            <span class="step-number">4</span>
+                                            El porcentaje es 53.28%
+                                        </div>
+                                </div>
+                        </div>
+
+                        <!-- Ejercicio 4 -->
+                        <div class="exercise-card">
+                            <h4>Ejercicio 4: Valor Esperado</h4>
+                            <div class="problem">
+                                <p>En un juego se lanza un dado. Si sale par, ganas Q20; si sale 1 o 3, pierdes Q30; si
+                                    sale 5, ganas Q50. ¿Cuál es el valor esperado de este juego?</p>
+                            </div>
+                            <div class="solution">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    Probabilidades: P(par) = 3/6 = 0.5, P(1 o 3) = 2/6 ≈ 0.333, P(5) = 1/6 ≈ 0.167
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    Valores: V(par) = 20, V(1 o 3) = -30, V(5) = 50
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    Valor esperado: E = (0.5*20) + (0.333*(-30)) + (0.167*50)
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">4</span>
+                                    E = 10 - 10 + 8.35 = 8.35
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">5</span>
+                                    El valor esperado es Q8.35 por juego
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ejercicio 5 -->
+                        <div class="exercise-card">
+                            <h4>Ejercicio 5: Ley de los Grandes Números</h4>
+                            <div class="problem">
+                                <p>Explica la Ley de los Grandes Números y proporciona un ejemplo de su aplicación.</p>
+                            </div>
+                            <div class="solution">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    La Ley de los Grandes Números establece que al repetir un experimento muchas veces,
+                                    la frecuencia relativa de un evento se acerca a su probabilidad teórica.
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    Por ejemplo, al lanzar una moneda justa muchas veces, la proporción de caras se
+                                    acercará a 0.5.
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    Aplicación: En seguros, permite predecir siniestros basándose en grandes volúmenes
+                                    de datos.
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">4</span>
+                                    Aplicación: En control de calidad, permite estimar la tasa de defectos en
+                                    producción.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </section>
+
+        <!-- ESTADÍSTICA -->
+        <section id="statistics" class="course-section statistics">
+            <div class="course-header">
+                <h2>Estadística</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Aplicar métodos estadísticos para el análisis de datos</li>
+                    <li>Realizar pruebas de hipótesis paramétricas y no paramétricas</li>
+                    <li>Calcular intervalos de confianza para diferentes parámetros</li>
+                    <li>Utilizar técnicas de regresión y correlación</li>
+                    <li>Interpretar resultados estadísticos en contextos aplicados</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Intervalo de Confianza</h4>
+                    <div class="problem">
+                        <p>Se desea estimar la media de una población normal con varianza desconocida. Una muestra de 25
+                            elementos tiene media 80 y desviación estándar 12. Construye un intervalo de confianza del
+                            95% para la media poblacional.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Como n=25 (<30) y varianza desconocida, usamos distribución t </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    Grados de libertad: n-1 = 24
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    Valor t para 95% confianza: t₀.₀₂₅,₂₄ = 2.064
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">4</span>
+                                    Error estándar: SE = s/√n = 12/5 = 2.4
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">5</span>
+                                    Margen de error: E = t * SE = 2.064 * 2.4 ≈ 4.95
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">6</span>
+                                    Intervalo: 80 ± 4.95 = (75.05, 84.95)
+                                </div>
+                        </div>
+                    </div>
+
+                    <!-- Ejercicio 2 -->
+                    <div class="exercise-card">
+                        <h4>Ejercicio 2: Prueba de Hipótesis</h4>
+                        <div class="problem">
+                            <p>Un fabricante afirma que sus bombillas duran 1000 horas. Una muestra de 30 bombillas
+                                tiene una duración media de 980 horas con desviación estándar de 80 horas. Prueba la
+                                hipótesis con α=0.05.</p>
+                        </div>
+                        <div class="solution">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                H₀: μ = 1000, H₁: μ < 1000 (prueba unilateral izquierda) </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        Estadístico de prueba: t = (x̄ - μ) / (s/√n) = (980-1000)/(80/√30) = -20/14.61 ≈
+                                        -1.368
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">3</span>
+                                        Valor crítico: t₀.₀₅,₂₉ = -1.699 (unilateral)
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">4</span>
+                                        Como -1.368 > -1.699, no rechazamos H₀
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">5</span>
+                                        No hay evidencia suficiente para refutar la afirmación del fabricante
+                                    </div>
+                            </div>
+                        </div>
+
+                        <!-- Ejercicio 3 -->
+                        <div class="exercise-card">
+                            <h4>Ejercicio 3: Regresión Lineal</h4>
+                            <div class="problem">
+                                <p>Ajusta una recta de regresión para los datos: x:1,2,3,4,5 y y:2,4,5,4,5. Calcula el
+                                    coeficiente de correlación.</p>
+                            </div>
+                            <div class="solution">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    Calculamos medias: x̄ = 3, ȳ = 4
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    Calculamos Sxy = Σ(x-x̄)(y-ȳ) = 4, Sxx = Σ(x-x̄)² = 10
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    Pendiente: b = Sxy/Sxx = 4/10 = 0.4
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">4</span>
+                                    Intercepto: a = ȳ - b*x̄ = 4 - 0.4*3 = 2.8
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">5</span>
+                                    Recta: y = 2.8 + 0.4x
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">6</span>
+                                    Coeficiente de correlación: r = Sxy/√(Sxx Syy) = 4/√(10*6) ≈ 0.516
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ejercicio 4 -->
+                        <div class="exercise-card">
+                            <h4>Ejercicio 4: ANOVA de Una Vía</h4>
+                            <div class="problem">
+                                <p>Se prueban tres métodos de enseñanza con tres grupos de estudiantes. Las
+                                    calificaciones son: Grupo1: 70,75,80; Grupo2: 75,80,85; Grupo3: 80,85,90. ¿Hay
+                                    diferencias significativas entre los métodos? (α=0.05)</p>
+                            </div>
+                            <div class="solution">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    Calculamos medias: x̄₁ = 75, x̄₂ = 80, x̄₃ = 85, media total = 80
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    SCT = ΣΣ(xij - x̄)² = 300, SCE = Σnᵢ(x̄ᵢ - x̄)² = 150, SCR = SCT - SCE = 150
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    Grados de libertad: glt = 8, gle = 2, glr = 6
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">4</span>
+                                    F = (SCE/gle) / (SCR/glr) = (150/2)/(150/6) = 75/25 = 3
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">5</span>
+                                    F crítico para (2,6) gl y α=0.05 es 5.14
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">6</span>
+                                    Como 3 < 5.14, no rechazamos H₀. No hay diferencias significativas. </div>
+                                </div>
+                            </div>
+
+                            <!-- Ejercicio 5 -->
+                            <div class="exercise-card">
+                                <h4>Ejercicio 5: Chi-Cuadrado de Independencia</h4>
+                                <div class="problem">
+                                    <p>Prueba si hay relación entre género y preferencia por un nuevo producto con los
+                                        datos: Hombres (30 sí, 20 no), Mujeres (25 sí, 25 no). Usa α=0.05.</p>
+                                </div>
+                                <div class="solution">
+                                    <div class="step">
+                                        <span class="step-number">1</span>
+                                        Tabla observada:
+                                        <table border="1"
+                                            style="margin: 10px 0; border-collapse: collapse; width: 20%;">
+                                            <tr>
+                                                <th></th>
+                                                <th>Sí</th>
+                                                <th>No</th>
+                                                <th>Total</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Hombres</td>
+                                                <td>30</td>
+                                                <td>20</td>
+                                                <td>50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mujeres</td>
+                                                <td>25</td>
+                                                <td>25</td>
+                                                <td>50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total</td>
+                                                <td>55</td>
+                                                <td>45</td>
+                                                <td>100</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">2</span>
+                                        Calculamos frecuencias esperadas:
+                                        Hombres-Sí: (50*55)/100 = 27.5, Hombres-No: (50*45)/100 = 22.5
+                                        Mujeres-Sí: (50*55)/100 = 27.5, Mujeres-No: (50*45)/100 = 22.5
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">3</span>
+                                        χ² = Σ[(O-E)²/E] = (30-27.5)²/27.5 + (20-22.5)²/22.5 + (25-27.5)²/27.5 +
+                                        (25-22.5)²/22.5 ≈ 1.01
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">4</span>
+                                        Grados de libertad: (2-1)(2-1) = 1
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">5</span>
+                                        Valor crítico χ²(0.05,1) = 3.84
+                                    </div>
+                                    <div class="step">
+                                        <span class="step-number">6</span>
+                                        Como 1.01 < 3.84, no rechazamos H₀. No hay relación significativa. </div>
+                                    </div>
+                                </div>
+                            </div>
+        </section>
+
+        <!-- INVESTIGACIÓN DE OPERACIONES -->
+        <section id="operations" class="course-section operations">
+            <div class="course-header">
+                <h2>Investigación de Operaciones</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Formular y resolver modelos de programación lineal</li>
+                    <li>Aplicar el método simplex para optimización</li>
+                    <li>Resolver problemas de transporte y asignación</li>
+                    <li>Utilizar teoría de colas y modelos de inventarios</li>
+                    <li>Aplicar técnicas de programación entera y dinámica</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Programación Lineal</h4>
+                    <div class="problem">
+                        <p>Una empresa produce dos productos. El producto A requiere 2 horas de mano de obra y 1 kg de
+                            material, generando Q30 de utilidad. El producto B requiere 1 hora de mano de obra y 2 kg de
+                            material, generando Q40 de utilidad. Si se dispone de 40 horas de mano de obra y 30 kg de
+                            material, ¿cuántas unidades de cada producto se deben producir para maximizar las
+                            utilidades?</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Variables: x = unidades de A, y = unidades de B
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Función objetivo: Maximizar Z = 30x + 40y
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Restricciones: 2x + y ≤ 40 (mano de obra), x + 2y ≤ 30 (material), x ≥ 0, y ≥ 0
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Puntos extremos: (0,0), (0,15), (20,0), (10,10)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Evaluamos: Z(0,0)=0, Z(0,15)=600, Z(20,0)=600, Z(10,10)=700
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            Solución óptima: x=10, y=10 con Z=700
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 2: Método Simplex</h4>
+                    <div class="problem">
+                        <p>Resuelve el siguiente problema usando el método simplex: Maximizar Z = 3x₁ + 2x₂ sujeto a:
+                            2x₁ + x₂ ≤ 18, 2x₁ + 3x₂ ≤ 42, 3x₁ + x₂ ≤ 24, x₁ ≥ 0, x₂ ≥ 0.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Convertimos a forma estándar agregando variables de holgura
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Tabla inicial:
+                            <table border="1" style="margin: 10px 0; border-collapse: collapse; width: 40%;">
+                                <tr>
+                                    <th>Base</th>
+                                    <th>x₁</th>
+                                    <th>x₂</th>
+                                    <th>s₁</th>
+                                    <th>s₂</th>
+                                    <th>s₃</th>
+                                    <th>Solución</th>
+                                </tr>
+                                <tr>
+                                    <td>s₁</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>18</td>
+                                </tr>
+                                <tr>
+                                    <td>s₂</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                    <td>s₃</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>24</td>
+                                </tr>
+                                <tr>
+                                    <td>Z</td>
+                                    <td>-3</td>
+                                    <td>-2</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Iteraciones simplex (2 iteraciones)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Solución óptima: x₁=3, x₂=12, Z=3*3 + 2*12 = 9+24=33
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 3: Problema de Transporte</h4>
+                    <div class="problem">
+                        <p>Resuelve el problema de transporte con 3 orígenes (O1:20, O2:30, O3:10) y 3 destinos (D1:15,
+                            D2:25, D3:20). Costos: O1-D1:8, O1-D2:6, O1-D3:10; O2-D1:9, O2-D2:12, O2-D3:13; O3-D1:14,
+                            O3-D2:9, O3-D3:16.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Aplicamos método de la esquina noroeste para solución inicial
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Asignaciones iniciales: O1-D1:15, O1-D2:5, O2-D2:20, O2-D3:10, O3-D3:10
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Costo inicial: 15*8 + 5*6 + 20*12 + 10*13 + 10*16 = 120+30+240+130+160=680
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Aplicamos método de stepping-stone para optimizar
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Solución óptima: O1-D2:20, O1-D3:0, O2-D1:15, O2-D3:15, O3-D2:5, O3-D3:5
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            Costo óptimo: 20*6 + 0*10 + 15*9 + 15*13 + 5*9 + 5*16 = 120+0+135+195+45+80=575
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 4 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 4: Teoría de Colas</h4>
+                    <div class="problem">
+                        <p>En un banco, los clientes llegan con una tasa de 10 por hora y son atendidos a una tasa de 15
+                            por hora. Calcula las medidas de desempeño del sistema.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            λ = 10 clientes/hora, μ = 15 clientes/hora
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Factor de utilización: ρ = λ/μ = 10/15 = 0.6667
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Probabilidad de 0 clientes: P₀ = 1 - ρ = 1 - 0.6667 = 0.3333
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Número promedio en el sistema: L = λ/(μ-λ) = 10/(15-10) = 2 clientes
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Tiempo promedio en el sistema: W = 1/(μ-λ) = 1/5 = 0.2 horas = 12 minutos
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 5 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 5: Programación Dinámica</h4>
+                    <div class="problem">
+                        <p>Resuelve el problema de la mochila: capacidad=5kg, items: A(2kg, Q3), B(3kg, Q4), C(4kg, Q5),
+                            D(1kg, Q2). Maximiza el valor total.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Creamos tabla para capacidades de 0 a 5 kg
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Para cada capacidad, evaluamos incluir cada item que cabe
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Solución: Incluir B (3kg, Q4) y D (1kg, Q2) con peso total 4kg y valor Q6
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            O incluir A (2kg, Q3) y C (4kg, Q5) con peso total 6kg (no válido)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            O incluir A, B y D: 2+3+1=6kg (no válido)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            Mejor solución válida: B y D con valor Q6
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FÍSICA I -->
+        <section id="physics1" class="course-section physics1">
+            <div class="course-header">
+                <h2>Física I</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Aplicar las leyes de Newton para resolver problemas de mecánica</li>
+                    <li>Calcular trabajo, energía y potencia en sistemas físicos</li>
+                    <li>Analizar sistemas de partículas y conservación del momento</li>
+                    <li>Resolver problemas de estática y dinámica de cuerpos rígidos</li>
+                    <li>Comprender los principios de la termodinámica y sus aplicaciones</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Movimiento Parabólico</h4>
+                    <div class="problem">
+                        <p>Se lanza un proyectil con velocidad inicial de 50 m/s con un ángulo de 37° sobre la
+                            horizontal. Calcula: a) Altura máxima, b) Alcance horizontal, c) Tiempo de vuelo.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Componentes de velocidad: v₀ₓ = 50*cos37° ≈ 50*0.8 = 40 m/s, v₀y = 50*sin37° ≈ 50*0.6 = 30
+                            m/s
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Altura máxima: y_max = (v₀y²)/(2g) = (30²)/(2*9.8) = 900/19.6 ≈ 45.92 m
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Tiempo de vuelo: t_v = (2*v₀y)/g = (2*30)/9.8 ≈ 6.12 s
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Alcance: x_max = v₀ₓ * t_v = 40 * 6.12 ≈ 244.8 m
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 2: Leyes de Newton</h4>
+                    <div class="problem">
+                        <p>Un bloque de 10 kg es arrastrado sobre una superficie horizontal con una fuerza de 50 N que
+                            forma un ángulo de 30° con la horizontal. Si el coeficiente de fricción cinética es 0.2,
+                            calcula la aceleración del bloque.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Componentes de la fuerza: Fₓ = 50*cos30° ≈ 43.3 N, Fy = 50*sin30° = 25 N
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Fuerza normal: N = mg - Fy = 10*9.8 - 25 = 98 - 25 = 73 N
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Fuerza de fricción: f = μ*N = 0.2*73 = 14.6 N
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Fuerza neta horizontal: F_net = Fₓ - f = 43.3 - 14.6 = 28.7 N
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Aceleración: a = F_net/m = 28.7/10 = 2.87 m/s²
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 3: Conservación de Energía</h4>
+                    <div class="problem">
+                        <p>Un bloque de 2 kg se desliza desde el reposo desde una altura de 5 m por una rampa sin
+                            fricción. Luego recorre una superficie horizontal con fricción (μ=0.3) hasta detenerse. ¿Qué
+                            distancia recorre en la superficie horizontal?</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Energía potencial inicial: Ep = mgh = 2*9.8*5 = 98 J
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Esta energía se convierte en energía cinética al final de la rampa: Ec = 98 J
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            En la superficie horizontal, el trabajo de fricción disipa esta energía: W_f = f*d = μ*N*d =
+                            μ*m*g*d
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Igualamos: μ*m*g*d = 98 J
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Despejamos d: d = 98/(μ*m*g) = 98/(0.3*2*9.8) = 98/5.88 ≈ 16.67 m
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 4 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 4: Momento de Inercia</h4>
+                    <div class="problem">
+                        <p>Calcula el momento de inercia de una varilla delgada de masa M y longitud L que gira
+                            alrededor de un eje perpendicular que pasa por su centro.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Densidad lineal: λ = M/L
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Consideramos un elemento de masa dm = λ*dx a distancia x del centro
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Momento de inercia del elemento: dI = x²*dm = x²*λ*dx
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Integramos desde -L/2 hasta L/2: I = ∫x²*λ*dx = λ*[x³/3] de -L/2 a L/2
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            I = λ*(L³/24 + L³/24) = λ*(L³/12) = (M/L)*(L³/12) = (1/12)ML²
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 5 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 5: Primera Ley de la Termodinámica</h4>
+                    <div class="problem">
+                        <p>Un gas ideal experimenta una expansión isotérmica a 300 K desde un volumen de 2 L a 5 L. Si
+                            el gas tenía inicialmente 2 moles, calcula el trabajo realizado y el calor transferido.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            En proceso isotérmico, ΔU = 0, por tanto Q = W
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Trabajo en expansión isotérmica: W = nRT*ln(Vf/Vi)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            W = 2*8.314*300*ln(5/2) = 4988.4*ln(2.5) ≈ 4988.4*0.9163 ≈ 4570 J
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Calor transferido: Q = W = 4570 J
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FÍSICA II -->
+        <section id="physics2" class="course-section physics2">
+            <div class="course-header">
+                <h2>Física II</h2>
+            </div>
+
+            <div class="objectives">
+                <h3><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h3>
+                <ul>
+                    <li>Comprender y aplicar las leyes del electromagnetismo</li>
+                    <li>Calcular campos eléctricos y magnéticos en diversas configuraciones</li>
+                    <li>Analizar circuitos de corriente alterna y sus componentes</li>
+                    <li>Resolver problemas de óptica geométrica y física</li>
+                    <li>Aplicar los principios de la relatividad y física moderna</li>
+                </ul>
+            </div>
+
+            <h3>Ejercicios Desarrollados</h3>
+
+            <div class="exercises">
+                <!-- Ejercicio 1 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 1: Ley de Coulomb</h4>
+                    <div class="problem">
+                        <p>Dos cargas puntuales de 3 μC y -4 μC están separadas 50 cm en el vacío. Calcula la fuerza
+                            entre ellas y determina si es de atracción o repulsión.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Ley de Coulomb: F = k*(|q₁*q₂|)/r², k = 9×10⁹ Nm²/C²
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            F = (9×10⁹)*|3×10⁻⁶ * (-4)×10⁻⁶|/(0.5)² = (9×10⁹)*12×10⁻¹²/0.25
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            F = (9×10⁹)*4.8×10⁻¹¹ = 4.32×10⁻¹ N = 0.432 N
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Como las cargas son de signo opuesto, la fuerza es de atracción
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 2: Campo Eléctrico</h4>
+                    <div class="problem">
+                        <p>Calcula el campo eléctrico en el punto medio entre dos cargas: q₁=2×10⁻⁶ C en (0,0) y
+                            q₂=-3×10⁻⁶ C en (4,0) metros.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Punto medio: (2,0)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Distancia de cada carga al punto: r = 2 m
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Campo de q₁: E₁ = k*q₁/r² = (9×10⁹)*(2×10⁻⁶)/4 = 4500 N/C (dirigido hacia +x)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Campo de q₂: E₂ = k*|q₂|/r² = (9×10⁹)*(3×10⁻⁶)/4 = 6750 N/C (dirigido hacia +x porque atrae
+                            carga positiva)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Campo total: E = E₁ + E₂ = 4500 + 6750 = 11250 N/C en dirección +x
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 3 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 3: Ley de Ampère</h4>
+                    <div class="problem">
+                        <p>Un alambre largo y recto lleva una corriente de 5 A. Calcula el campo magnético a una
+                            distancia de 10 cm del alambre.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Ley de Ampère: B = (μ₀*I)/(2π*r), μ₀ = 4π×10⁻⁷ T*m/A
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            B = (4π×10⁻⁷ * 5)/(2π*0.1) = (2×10⁻⁶)/(0.1) = 2×10⁻⁵ T
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            La dirección es tangente a círculos concéntricos alrededor del alambre
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 4 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 4: Reflexión y Refracción</h4>
+                    <div class="problem">
+                        <p>Un rayo de luz incide desde el aire (n=1) sobre un vidrio (n=1.5) con un ángulo de 30°.
+                            Calcula el ángulo de refracción y el ángulo crítico para reflexión total.</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Ley de Snell: n₁*sinθ₁ = n₂*sinθ₂
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            1*sin30° = 1.5*sinθ₂ → 0.5 = 1.5*sinθ₂ → sinθ₂ = 0.5/1.5 ≈ 0.3333
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            θ₂ = arcsin(0.3333) ≈ 19.47°
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Ángulo crítico: sinθ_c = n₂/n₁ = 1/1.5 ≈ 0.6667 → θ_c = arcsin(0.6667) ≈ 41.81°
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio 5 -->
+                <div class="exercise-card">
+                    <h4>Ejercicio 5: Efecto Fotoeléctrico</h4>
+                    <div class="problem">
+                        <p>La función trabajo del sodio es 2.3 eV. ¿Cuál es la longitud de onda máxima que puede causar
+                            emisión fotoeléctrica? Si se usa luz de 200 nm, ¿cuál es la energía cinética máxima de los
+                            electrones emitidos?</p>
+                    </div>
+                    <div class="solution">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Energía umbral: E_0 = 2.3 eV = 2.3 * 1.6×10⁻¹⁹ = 3.68×10⁻¹⁹ J
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Longitud de onda máxima: λ_max = h*c/E_0
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            h = 6.63×10⁻³⁴ J*s, c = 3×10⁸ m/s → h*c = 1.989×10⁻²⁵ J*m
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            λ_max = 1.989×10⁻²⁵ / 3.68×10⁻¹⁹ ≈ 5.404×10⁻⁷ m = 540.4 nm
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Para λ=200 nm: E = h*c/λ = 1.989×10⁻²⁵ / 200×10⁻⁹ = 9.945×10⁻¹⁹ J
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            Energía cinética: K_max = E - E_0 = 9.945×10⁻¹⁹ - 3.68×10⁻¹⁹ = 6.265×10⁻¹⁹ J ≈ 3.92 eV
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Portafolio de Cierre de Cursos - Ingeniería en Sistemas de Información y Ciencias de la Computación</p>
+            <p>Universidad Mariano Gálvez, Sede Quiché - 2025</p>
+            <p>© Cruz Pablo Pérez - Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
